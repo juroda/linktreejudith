@@ -43,7 +43,7 @@ function App() {
           <div className="relative inline-block">
             <div className="absolute inset-0 bg-gradient-to-r from-pink-400/30 to-pink-500/30 rounded-full blur-md opacity-60 animate-pulse"></div>
             <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400"
+              src="https://media.licdn.com/dms/image/v2/D4D03AQFYPO2OA5ASrQ/profile-displayphoto-shrink_200_200/B4DZRnJImHHYAY-/0/1736897235899?e=1745452800&v=beta&t=RtxdwgtupC0yQdfI986YJr0OCG0VDl_kUE4ZS-R_rmI"
               alt="Profile"
               className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full mx-auto border-2 border-white shadow-lg object-cover"
             />
