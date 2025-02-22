@@ -80,13 +80,13 @@ export function Portfolio() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-pink-600 mb-6">
+            {/* <h1 className="text-4xl md:text-5xl font-bold text-pink-600 mb-6">
               ¡Hola! Bienvenidos a mi portfolio
-            </h1>
+            </h1> */}
             <motion.img
               src="https://media.licdn.com/dms/image/v2/D4D03AQFYPO2OA5ASrQ/profile-displayphoto-shrink_200_200/B4DZRnJImHHYAY-/0/1736897235899?e=1745452800&v=beta&t=RtxdwgtupC0yQdfI986YJr0OCG0VDl_kUE4ZS-R_rmI"
               alt="Judith Dávalos"
-              className="w-40 h-40 rounded-full object-cover border-4 border-pink-200 shadow-lg mb-6"
+              className="w-40 h-40 rounded-full object-cover border-4 border-pink-200 shadow-lg m-auto mb-6"
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
             />
