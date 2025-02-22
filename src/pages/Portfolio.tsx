@@ -284,6 +284,18 @@ export function Portfolio() {
                 description: "Contenido educativo sobre tecnología y desarrollo.",
                 image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&q=80&w=800",
                 url: "https://www.youtube.com/@juroda7170"
+              },
+              {
+                title: "Amigo secreto",
+                description: "Agregar los nombres de tus amigos y realizar un sorteo aleatorio.",
+                image: "https://images.unsplash.com/photo-1483706600674-e0c87d3fe85b?q=80&w=1507&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                url: "https://challenge-amigo-secreto-seven-flax.vercel.app/"
+              },
+              {
+                title: "¡Siempre va a haber más!",
+                description: "Paso a paso genero más y más proyectos ¡Gracias por apoyarme!",
+                image: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                url: "#"
               }
             ].map((project, index) => (
               <motion.div
