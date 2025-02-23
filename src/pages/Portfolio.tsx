@@ -149,9 +149,6 @@ export function Portfolio() {
             transition={{ duration: 0.8 }}
             className="text-center w-full max-w-4xl mx-auto"
           >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-pink-600 mb-6">
-              ¡Hola! Bienvenidos a mi portfolio
-            </h1>
             <motion.img
               src="https://media.licdn.com/dms/image/v2/D4D03AQFYPO2OA5ASrQ/profile-displayphoto-shrink_200_200/B4DZRnJImHHYAY-/0/1736897235899?e=1745452800&v=beta&t=RtxdwgtupC0yQdfI986YJr0OCG0VDl_kUE4ZS-R_rmI"
               alt="Judith Dávalos"
