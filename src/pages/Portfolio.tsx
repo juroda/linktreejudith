@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Github, Instagram, Linkedin, MessageCircle, Home, User, Briefcase, Code2, Mail, Youtube, Heart, GraduationCap, PenTool as Tool, Star } from 'lucide-react';
+import { Github, Instagram, Linkedin, MessageCircle, Home, User, Briefcase, Code2, Mail, Youtube, Heart, GraduationCap, PenTool as Tool, Star, Menu, X } from 'lucide-react';
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   const [ref, inView] = useInView({
@@ -25,6 +25,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 
 export function Portfolio() {
   const [activeSection, setActiveSection] = useState('inicio');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -40,16 +41,83 @@ export function Portfolio() {
     { id: 'contacto', label: 'Contacto', icon: Mail }
   ];
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isMenuOpen && !target.closest('.mobile-menu') && !target.closest('.menu-button')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMenuOpen]);
+
+  // Close menu when window is resized to desktop size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-pink-50 to-white">
+    <div className="flex min-h-screen bg-gradient-to-br from-pink-50 to-white overflow-x-hidden">
       {/* Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-pink-600 origin-left z-50"
         style={{ scaleX }}
       />
 
-      {/* Side Navigation */}
-      <nav className="fixed left-0 top-0 h-screen w-20 bg-white shadow-lg flex flex-col items-center py-8 z-40">
+      {/* Mobile Menu Button */}
+      <button
+        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-lg shadow-lg menu-button"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+
+      {/* Mobile Navigation Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ x: -300 }}
+            animate={{ x: 0 }}
+            exit={{ x: -300 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="fixed top-0 left-0 h-screen w-64 bg-white shadow-lg z-40 mobile-menu md:hidden"
+          >
+            <div className="pt-16 px-4">
+              {sections.map(({ id, label, icon: Icon }) => (
+                <Link
+                  key={id}
+                  to={id}
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                  offset={-20}
+                  className={`flex items-center p-4 mb-2 rounded-lg cursor-pointer transition-all duration-300 ${
+                    activeSection === id ? 'bg-pink-600 text-white' : 'text-gray-600 hover:bg-pink-100'
+                  }`}
+                  onSetActive={() => setActiveSection(id)}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Icon size={20} className="mr-3" />
+                  <span>{label}</span>
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Desktop Side Navigation */}
+      <nav className="hidden md:flex fixed left-0 top-0 h-screen w-20 bg-white shadow-lg flex-col items-center py-8 z-40">
         {sections.map(({ id, label, icon: Icon }) => (
           <Link
             key={id}
@@ -72,30 +140,31 @@ export function Portfolio() {
       </nav>
 
       {/* Main Content */}
-      <div className="flex-1 ml-20">
+      <div className="flex-1 md:ml-20">
         {/* Header/Hero Section */}
-        <header id="inicio" className="container mx-auto px-4 py-16 flex flex-col items-center text-center min-h-screen flex items-center justify-center">
+        <header id="inicio" className="container mx-auto px-4 py-16 min-h-screen flex items-center justify-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="text-center w-full max-w-4xl mx-auto"
           >
-            {/* <h1 className="text-4xl md:text-5xl font-bold text-pink-600 mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-pink-600 mb-6">
               ¡Hola! Bienvenidos a mi portfolio
-            </h1> */}
+            </h1>
             <motion.img
               src="https://media.licdn.com/dms/image/v2/D4D03AQFYPO2OA5ASrQ/profile-displayphoto-shrink_200_200/B4DZRnJImHHYAY-/0/1736897235899?e=1745452800&v=beta&t=RtxdwgtupC0yQdfI986YJr0OCG0VDl_kUE4ZS-R_rmI"
               alt="Judith Dávalos"
-              className="w-40 h-40 rounded-full object-cover border-4 border-pink-200 shadow-lg m-auto mb-6"
+              className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-pink-200 shadow-lg mb-6 mx-auto"
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
             />
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Judith Dávalos</h2>
-            <p className="text-xl text-pink-700 mb-8">Docente de Tecnología y Testing de Software</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Judith Dávalos</h2>
+            <p className="text-lg md:text-xl text-pink-700 mb-8">Docente de Tecnología y Testing de Software</p>
             
             {/* Social Links */}
             <motion.div 
-              className="flex gap-6 mb-12 justify-center"
+              className="flex flex-wrap gap-4 md:gap-6 mb-12 justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
@@ -112,11 +181,11 @@ export function Portfolio() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-pink-600 shadow-md hover:shadow-lg hover:text-pink-800 transition-all"
+                  className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center text-pink-600 shadow-md hover:shadow-lg hover:text-pink-800 transition-all"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <social.icon size={24} />
+                  <social.icon size={20} />
                 </motion.a>
               ))}
             </motion.div>
@@ -133,7 +202,7 @@ export function Portfolio() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="prose prose-pink mx-auto text-gray-600 space-y-4">
+            <div className="prose prose-pink mx-auto text-gray-600 space-y-4 px-4">
               <p className="leading-relaxed">
                 Soy Judith, docente de tecnología y testing de software con experiencia en la enseñanza de pruebas manuales, metodologías ágiles y disciplinas tecnológicas. Además, tengo formación en desarrollo web y experiencia en programación.
               </p>
@@ -154,7 +223,7 @@ export function Portfolio() {
         <section id="habilidades" className="container mx-auto px-4 py-16">
           <SectionTitle>Habilidades</SectionTitle>
           <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -265,7 +334,7 @@ export function Portfolio() {
         {/* Projects Section */}
         <section id="proyectos" className="container mx-auto px-4 py-16">
           <SectionTitle>Proyectos</SectionTitle>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 title: "DevHouse",
