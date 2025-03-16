@@ -358,6 +358,12 @@ export function Portfolio() {
                 url: "https://challenge-amigo-secreto-seven-flax.vercel.app/"
               },
               {
+                title: "Viviana Medina",
+                description: "Una profesional multifacética que combina su pasión por la estética con su carrera artística.",
+                image: "https://plus.unsplash.com/premium_photo-1663039841668-5638c2938153?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                url: "https://viviana-medina.vercel.app/"
+              },
+              {
                 title: "¡Siempre va a haber más!",
                 description: "Paso a paso genero más y más proyectos ¡Gracias por apoyarme!",
                 image: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
