@@ -21,16 +21,16 @@ export function Home() {
     },
     {
       title: 'WhatsApp',
-      url: 'https://wa.me/5491124048592?text=%C2%A1Buenas!%20Estoy%20interesado%20en%20una%20pagina%20web',
+      url: 'https://wa.me/34614450805?text=%C2%A1Buenas!%20Estoy%20interesado%20en%20una%20pagina%20web',
       icon: <MessageCircle className="w-6 h-6" />,
       description: 'Hablemos sobre tu proyecto',
       gradient: 'from-pink-300/40 to-pink-500/40'
     },
     {
       title: 'Ubicación',
-      url: 'https://maps.google.com/?q=Viamonte+867,+C1053ABQ+Ciudad+Autónoma+de+Buenos+Aires',
+      url: '#',
       icon: <MapPin className="w-6 h-6" />,
-      description: 'Viamonte 867, CABA',
+      description: 'Momentaneamente solo ONLNE',
       gradient: 'from-pink-600/40 to-pink-800/40'
     }
   ];
@@ -110,7 +110,7 @@ export function Home() {
         {/* Footer */}
         <footer className="mt-16 text-center">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Judith Rocio Davalos Gonzalez • Made with ♥
+            © {new Date().getFullYear()} <a href="https://www.instagram.com/_juroda/" target="_blank" rel="noopener noreferrer">Judith Rocio Davalos Gonzalez</a> • Made with ♥
           </p>
         </footer>
       </div>
