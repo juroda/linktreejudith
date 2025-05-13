@@ -150,7 +150,7 @@ export function Portfolio() {
             className="text-center w-full max-w-4xl mx-auto"
           >
             <motion.img
-              src="https://media.licdn.com/dms/image/v2/D4D03AQFYPO2OA5ASrQ/profile-displayphoto-shrink_200_200/B4DZRnJImHHYAY-/0/1736897235899?e=1745452800&v=beta&t=RtxdwgtupC0yQdfI986YJr0OCG0VDl_kUE4ZS-R_rmI"
+              src="/profile.jpg"
               alt="Judith Dávalos"
               className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-pink-200 shadow-lg mb-6 mx-auto"
               whileHover={{ scale: 1.1 }}
