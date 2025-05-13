@@ -168,7 +168,7 @@ export function Portfolio() {
             >
               {[
                 { href: "https://www.linkedin.com/in/judithdavalos/", icon: Linkedin },
-                { href: "https://www.instagram.com/judithdev_/", icon: Instagram },
+                { href: "https://www.instagram.com/_juroda/", icon: Instagram },
                 { href: "https://github.com/juroda", icon: Github },
                 { href: "https://www.youtube.com/@juroda7170", icon: Youtube },
                 { href: "https://wa.me/5491124048592", icon: MessageCircle }
