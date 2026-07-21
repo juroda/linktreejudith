@@ -364,6 +364,18 @@ export function Portfolio() {
                 url: "https://viviana-medina.vercel.app/"
               },
               {
+                title: "Skill Swap",
+                description: "Una plataforma para intercambiar habilidades y aprender de otros.",
+                image: "public/SkillSwap.png",
+                url: "https://skillswapifts.netlify.app/"
+              },
+              {
+                title: "TEVIAN",
+                description: "Una plataforma para la gestión y organización de eventos",
+                image: "public/TEVIAN.png",
+                url: "https://tevian.onrender.com/"
+              },
+              {
                 title: "¡Siempre va a haber más!",
                 description: "Paso a paso genero más y más proyectos ¡Gracias por apoyarme!",
                 image: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -416,7 +428,7 @@ export function Portfolio() {
               Siempre estoy abierta a discutir nuevos proyectos, ideas creativas u oportunidades para ser parte de tus visiones.
             </p>
             <motion.a
-              href="https://wa.me/5491124048592"
+              href="https://wa.me/5491170671322"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-pink-600 text-white px-6 py-3 rounded-lg hover:bg-pink-700 transition-colors"
