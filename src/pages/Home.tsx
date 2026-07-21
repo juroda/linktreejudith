@@ -21,7 +21,7 @@ export function Home() {
     },
     {
       title: 'WhatsApp',
-      url: 'https://wa.me/34614450805?text=%C2%A1Buenas!%20Estoy%20interesado%20en%20una%20pagina%20web',
+      url: 'https://wa.me/5491170671322?text=%C2%A1Buenas!%20Estoy%20interesado%20en%20una%20pagina%20web',
       icon: <MessageCircle className="w-6 h-6" />,
       description: 'Hablemos sobre tu proyecto',
       gradient: 'from-pink-300/40 to-pink-500/40'
